@@ -18,9 +18,13 @@ use Symfony\Component\ErrorHandler\Exception\FlattenException;
 
 class OrderController extends Controller
 {
-    public function index(OrderQuery $query)
+    public function index(Request $request)
     {
+        $query = new Order();
         $query = $query->where('user_id', $this->user['id']);
+        if ($request->get('status') > -1) {
+            $query = $query->where('status', $request->get('status'));
+        }
         $list = $query->paginate();
         foreach ($list as $item) {
             $item->details;
@@ -66,33 +70,36 @@ class OrderController extends Controller
             if (!OrderDetails::insert($details)) {
                 abort(500);
             }
-            $app = Factory::payment(config('wechat'));
-            $unifyRes = $app->order->unify([
-                'body' => $data['details'][0]['title'],
-                'out_trade_no' => $order->order_no,
-                'total_fee' => $order->wx_balance,
-                'trade_type' => 'JSAPI',
-                'openid' => $this->user['openid'],
-            ]);
-            if ($unifyRes['return_msg'] != 'OK') {
-                abort(5070);
-            }
+//            $app = Factory::payment(config('wechat'));
+//            $unifyRes = $app->order->unify([
+//                'body' => $data['details'][0]['title'],
+//                'out_trade_no' => $order->order_no,
+//                'total_fee' => $order->wx_balance,
+//                'trade_type' => 'JSAPI',
+//                'openid' => $this->user['openid'],
+//            ]);
+//            if ($unifyRes['return_msg'] != 'OK') {
+//                abort(5070);
+//            }
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
             $fe = FlattenException::create($exception);
+            Log::error($exception->getMessage());
+            Log::error($fe->getStatusCode());
             abort($fe->getStatusCode());
         }
         return response([
             'order_id' => $order->id,
             'timeStamp' => time(),
-            'nonce_str' => $unifyRes['nonce_str'],
-            'prepay_id' => $unifyRes['prepay_id'],
-            'sign' => $unifyRes['sign'],
+//            'nonce_str' => $unifyRes['nonce_str'],
+//            'prepay_id' => $unifyRes['prepay_id'],
+//            'sign' => $unifyRes['sign'],
         ], 200);
     }
 
-    public function orderPay(Request $request){
+    public function orderPay(Request $request)
+    {
         $params = $request->all();
         $order = Order::where('user_id', $this->user['id'])->where('id', $params['order_id'])->first();
         $order->details;
@@ -116,11 +123,12 @@ class OrderController extends Controller
         ], 200);
     }
 
-    public function update($id, Request $request)
+    public function update(Request $request)
     {
-        $order = Order::where('user_id', $this->user['id'])->where('id', $id)->first();
+        $params = $request->all();
+        $order = Order::where('user_id', $this->user['id'])->where('id', $params['id'])->first();
         $order->details;
-        $status = $request->get('status');
+        $status = $params['status'];
         if ($order->status == 0 && $status == -7) {
             $order->status = -7;
         } else if ($order->status == 1 && $status == -1) {
@@ -128,7 +136,7 @@ class OrderController extends Controller
         } else if (($order->status == 2 || $order->status == 3) && $status == -4) {
             $order->status = -4;
         }
-        if (!$order->save()){
+        if (!$order->save()) {
             abort(500);
         }
         return new OrderResource($order);
