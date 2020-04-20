@@ -1,5 +1,5 @@
 <?php
-Route::prefix('order')->namespace('Order')->group(function () {
+Route::middleware('auth:sanctum')->prefix('order')->namespace('Order')->group(function () {
     Route::get('order', 'OrderController@index')->name('order.index');
     Route::get('order/{id}', 'OrderController@show')->name('order.show');
     Route::post('order/', 'OrderController@store')->name('order.store');

@@ -14,6 +14,7 @@ Route::group([
 
     $router->group(['prefix' => 'goods', 'namespace' => 'Goods'], function (Router $router) {
         $router->resource('goods', 'GoodsController');
+        $router->resource('goods_details', 'GoodsDetailsController');
         $router->resource('goods_group', 'GoodsGroupController');
         $router->resource('goods_search', 'GoodsSearchController');
     });

@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Http\Queries\Order\OrderQuery;
 use App\Http\Resources\Order\OrderResource;
 use App\Models\Goods\Goods;
+use App\Models\Goods\GoodsCart;
 use App\Models\Goods\GoodsGroup;
 use App\Models\Order\Order;
 use App\Models\Order\OrderDetails;
 use App\Models\User\Address;
+use App\Traits\RequestTrait;
 use EasyWeChat\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +23,7 @@ class OrderController extends Controller
     public function index(Request $request)
     {
         $query = new Order();
-        $query = $query->where('user_id', $this->user['id']);
+        $query = $query->where('user_id', $request->user()->id);
         if ($request->get('status') > -1) {
             $query = $query->where('status', $request->get('status'));
         }
@@ -32,9 +34,9 @@ class OrderController extends Controller
         return OrderResource::collection($list);
     }
 
-    public function show($id)
+    public function show($id, Request $request)
     {
-        $order = Order::where('user_id', $this->user['id'])->where('id', $id)->first();
+        $order = Order::where('user_id', $request->user()->id)->where('id', $id)->first();
         $order->details;
         return new OrderResource($order);
     }
@@ -49,7 +51,7 @@ class OrderController extends Controller
     public function store(Request $request)
     {
         $params = $request->all();
-        $data = Order::createOrder($this->user, $params['params'], $params['balance']);
+        $data = Order::createOrder($request->user(), $params['params'], $params['balance']);
         $data['address_name'] = $params['address_name'];
         $data['address_tel'] = $params['address_tel'];
         $data['address_details'] = $params['address_details'];
@@ -58,10 +60,14 @@ class OrderController extends Controller
         $order = new Order();
         $unifyRes = [];
         try {
-
             $order->fill($data);
             if (!$order->save()) {
                 abort(500);
+            }
+            if (isset($params['params']['cart'])) {
+                if (!GoodsCart::whereIn('id', explode(',', $params['params']['cart']))->delete()) {
+                    abort(500);
+                }
             }
             $details = array_map(function ($item) use ($order) {
                 $item['order_id'] = $order->id;
@@ -70,17 +76,17 @@ class OrderController extends Controller
             if (!OrderDetails::insert($details)) {
                 abort(500);
             }
-//            $app = Factory::payment(config('wechat'));
-//            $unifyRes = $app->order->unify([
-//                'body' => $data['details'][0]['title'],
-//                'out_trade_no' => $order->order_no,
-//                'total_fee' => $order->wx_balance,
-//                'trade_type' => 'JSAPI',
-//                'openid' => $this->user['openid'],
-//            ]);
-//            if ($unifyRes['return_msg'] != 'OK') {
-//                abort(5070);
-//            }
+            $app = Factory::payment(config('wechat'));
+            $unifyRes = $app->order->unify([
+                'body' => $data['details'][0]['title'],
+                'out_trade_no' => $order->order_no,
+                'total_fee' => $order->wx_balance,
+                'trade_type' => 'JSAPI',
+                'openid' => $this->user['openid'],
+            ]);
+            if ($unifyRes['return_msg'] != 'OK') {
+                abort(5070);
+            }
             DB::commit();
         } catch (\Exception $exception) {
             DB::rollBack();
@@ -92,16 +98,16 @@ class OrderController extends Controller
         return response([
             'order_id' => $order->id,
             'timeStamp' => time(),
-//            'nonce_str' => $unifyRes['nonce_str'],
-//            'prepay_id' => $unifyRes['prepay_id'],
-//            'sign' => $unifyRes['sign'],
+            'nonce_str' => $unifyRes['nonce_str'],
+            'prepay_id' => $unifyRes['prepay_id'],
+            'sign' => $unifyRes['sign'],
         ], 200);
     }
 
     public function orderPay(Request $request)
     {
         $params = $request->all();
-        $order = Order::where('user_id', $this->user['id'])->where('id', $params['order_id'])->first();
+        $order = Order::where('user_id', $request->user()->id)->where('id', $params['order_id'])->first();
         $order->details;
         $app = Factory::payment(config('wechat'));
         $unifyRes = $app->order->unify([
@@ -126,7 +132,7 @@ class OrderController extends Controller
     public function update(Request $request)
     {
         $params = $request->all();
-        $order = Order::where('user_id', $this->user['id'])->where('id', $params['id'])->first();
+        $order = Order::where('user_id', $request->user()->id)->where('id', $params['id'])->first();
         $order->details;
         $status = $params['status'];
         if ($order->status == 0 && $status == -7) {

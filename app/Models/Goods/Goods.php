@@ -42,6 +42,24 @@ class Goods extends Model
         return $value ? explode(',', $value) : [];
     }
 
+    public function details(){
+        return $this->hasOne('App\Models\Goods\GoodsDetails', 'id', 'details_id');
+    }
+
+    public function getSellStatus()
+    {
+        $status = 0;
+        if ($this->stock <= $this->buy_count) {
+            $status = 1;
+        }
+        if ($this->start_time && $this->start_time > time()) {
+            $status = 2;
+        } else if ($this->start_time && $this->start_time > time()) {
+            $status = 3;
+        }
+        $status_name = Goods::$EnumSellStatus[$status];
+        return compact('status', 'status_name');
+    }
 
     /**
      * 获取有戏商品
