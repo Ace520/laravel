@@ -27,23 +27,9 @@ class Goods extends Model
 
     public static $EnumStatus = [0 => '未上架', 1 => '上架中'];
 
-    public function setDetailsAttribute($value)
-    {
-        $this->attributes['details'] = is_array($value) ? implode(',', $value) : $value;
-    }
-
-    public function getDetailsAttribute($value)
-    {
-        return $value ? explode(',', $value) : [];
-    }
-
     public function getTagsAttribute($value)
     {
         return $value ? explode(',', $value) : [];
-    }
-
-    public function details(){
-        return $this->hasOne('App\Models\Goods\GoodsDetails', 'id', 'details_id');
     }
 
     public function getSellStatus()

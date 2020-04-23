@@ -25,6 +25,7 @@ class GoodsController extends Controller
                 $query = $query->where('start_time', '<=', date('Y-m-d H:i:s', time()));
             }
         }
+        $query =  $query->select('id','title','img','price','discount','tags','click_count','buy_count','status','start_time','end_time','send_time','category_id');
         $list = $query->orderByDesc('start_time')->paginate();
         if ($request->input('buy_user')) {
             foreach ($list as $item) {

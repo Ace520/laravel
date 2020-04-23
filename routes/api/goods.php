@@ -2,7 +2,6 @@
 Route::prefix('goods')->namespace('Goods')->group(function () {
     Route::get('goods', 'GoodsController@index')->name('goods.index');
     Route::get('goods/{id}', 'GoodsController@show')->name('goods.show');
-    Route::get('goods_details/{id}', 'GoodsDetailsController@show')->name('goods_details.show');
     Route::get('goods_group', 'GoodsGroupController@index')->name('goods.index');
     Route::middleware('auth:sanctum')->group(function () {
         Route::get('goods_search', 'GoodsSearchController@index')->name('goods_search.index');
