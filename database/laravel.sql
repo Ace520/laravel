@@ -4,14 +4,14 @@
  Source Server         : localhost
  Source Server Type    : MySQL
  Source Server Version : 50562
- Source Host           : 192.168.19.65:3306
+ Source Host           : 172.17.154.129:3306
  Source Schema         : laravel
 
  Target Server Type    : MySQL
  Target Server Version : 50562
  File Encoding         : 65001
 
- Date: 20/04/2020 00:05:38
+ Date: 24/04/2020 02:38:08
 */
 
 SET NAMES utf8mb4;
@@ -87,7 +87,6 @@ INSERT INTO `admin_menu` VALUES (25, 24, 0, '订单列表', 'fa-list-ul', 'order
 INSERT INTO `admin_menu` VALUES (26, 24, 0, '订单详情', 'fa-list-alt', 'order/order_details', NULL, '2020-04-10 03:52:48', '2020-04-10 03:55:41');
 INSERT INTO `admin_menu` VALUES (27, 24, 0, '更新记录', 'fa-history', '/order/order_record', NULL, '2020-04-10 03:53:54', '2020-04-10 03:53:54');
 INSERT INTO `admin_menu` VALUES (28, 24, 0, '订单评论', 'fa-commenting-o', 'order/order_comment', NULL, '2020-04-10 03:54:25', '2020-04-10 03:54:37');
-INSERT INTO `admin_menu` VALUES (29, 21, 0, '图文详情', 'fa-file-image-o', 'goods/goods_details', NULL, '2020-04-19 16:35:52', '2020-04-19 16:35:52');
 
 -- ----------------------------
 -- Table structure for admin_operation_log
@@ -104,7 +103,7 @@ CREATE TABLE `admin_operation_log`  (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `admin_operation_log_user_id_index`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1038 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1103 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of admin_operation_log
@@ -1146,6 +1145,71 @@ INSERT INTO `admin_operation_log` VALUES (1034, 1, 'admin/goods/goods/3', 'PUT',
 INSERT INTO `admin_operation_log` VALUES (1035, 1, 'admin/goods/goods', 'GET', '192.168.19.65', '[]', '2020-04-19 23:51:22', '2020-04-19 23:51:22');
 INSERT INTO `admin_operation_log` VALUES (1036, 1, 'admin/goods/goods_details', 'GET', '192.168.19.65', '[]', '2020-04-19 23:51:30', '2020-04-19 23:51:30');
 INSERT INTO `admin_operation_log` VALUES (1037, 1, 'admin/goods/goods_search', 'GET', '192.168.19.65', '[]', '2020-04-19 23:51:37', '2020-04-19 23:51:37');
+INSERT INTO `admin_operation_log` VALUES (1038, 1, 'admin', 'GET', '192.168.19.65', '[]', '2020-04-20 00:07:43', '2020-04-20 00:07:43');
+INSERT INTO `admin_operation_log` VALUES (1039, 1, 'admin/dashboard', 'GET', '192.168.19.65', '[]', '2020-04-20 00:07:43', '2020-04-20 00:07:43');
+INSERT INTO `admin_operation_log` VALUES (1040, 1, 'admin/auth/logout', 'GET', '192.168.19.65', '{\"_pjax\":\"#pjax-container\"}', '2020-04-20 00:07:46', '2020-04-20 00:07:46');
+INSERT INTO `admin_operation_log` VALUES (1041, 1, 'admin', 'GET', '192.168.19.65', '[]', '2020-04-20 00:07:50', '2020-04-20 00:07:50');
+INSERT INTO `admin_operation_log` VALUES (1042, 1, 'admin', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:20', '2020-04-20 00:08:20');
+INSERT INTO `admin_operation_log` VALUES (1043, 1, 'admin/dashboard', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:21', '2020-04-20 00:08:21');
+INSERT INTO `admin_operation_log` VALUES (1044, 1, 'admin/user/user', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:25', '2020-04-20 00:08:25');
+INSERT INTO `admin_operation_log` VALUES (1045, 1, 'admin/goods/goods', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:27', '2020-04-20 00:08:27');
+INSERT INTO `admin_operation_log` VALUES (1046, 1, 'admin/goods/goods_details', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:38', '2020-04-20 00:08:38');
+INSERT INTO `admin_operation_log` VALUES (1047, 1, 'admin/goods/goods_search', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:43', '2020-04-20 00:08:43');
+INSERT INTO `admin_operation_log` VALUES (1048, 1, 'admin/auth/logout', 'GET', '192.168.19.65', '{\"_pjax\":\"#pjax-container\"}', '2020-04-20 00:08:54', '2020-04-20 00:08:54');
+INSERT INTO `admin_operation_log` VALUES (1049, 1, 'admin', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:58', '2020-04-20 00:08:58');
+INSERT INTO `admin_operation_log` VALUES (1050, 1, 'admin/dashboard', 'GET', '192.168.19.65', '[]', '2020-04-20 00:08:59', '2020-04-20 00:08:59');
+INSERT INTO `admin_operation_log` VALUES (1051, 1, 'admin/redis', 'GET', '192.168.19.65', '[]', '2020-04-20 00:09:01', '2020-04-20 00:09:01');
+INSERT INTO `admin_operation_log` VALUES (1052, 1, 'admin/redis', 'GET', '192.168.19.65', '[]', '2020-04-20 00:09:06', '2020-04-20 00:09:06');
+INSERT INTO `admin_operation_log` VALUES (1053, 1, 'admin/logs', 'GET', '192.168.19.65', '[]', '2020-04-20 00:09:10', '2020-04-20 00:09:10');
+INSERT INTO `admin_operation_log` VALUES (1054, 1, 'admin', 'GET', '172.18.56.145', '[]', '2020-04-20 11:04:24', '2020-04-20 11:04:24');
+INSERT INTO `admin_operation_log` VALUES (1055, 1, 'admin/goods/goods_details', 'GET', '172.18.56.145', '[]', '2020-04-20 11:06:28', '2020-04-20 11:06:28');
+INSERT INTO `admin_operation_log` VALUES (1056, 1, 'admin/goods/goods_details/create', 'GET', '172.18.56.145', '{\"_ifraem_id_\":\"iframe__admin_goods_goods_details\"}', '2020-04-20 11:06:32', '2020-04-20 11:06:32');
+INSERT INTO `admin_operation_log` VALUES (1057, 1, 'admin/goods/goods', 'GET', '172.18.56.145', '[]', '2020-04-20 11:08:47', '2020-04-20 11:08:47');
+INSERT INTO `admin_operation_log` VALUES (1058, 1, 'admin/goods/goods', 'GET', '172.18.56.145', '[]', '2020-04-20 11:08:51', '2020-04-20 11:08:51');
+INSERT INTO `admin_operation_log` VALUES (1059, 1, 'admin/goods/goods/create', 'GET', '172.18.56.145', '{\"_ifraem_id_\":\"iframe__admin_goods_goods\"}', '2020-04-20 11:09:02', '2020-04-20 11:09:02');
+INSERT INTO `admin_operation_log` VALUES (1060, 1, 'admin', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:15', '2020-04-20 11:11:15');
+INSERT INTO `admin_operation_log` VALUES (1061, 1, 'admin/dashboard', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:15', '2020-04-20 11:11:15');
+INSERT INTO `admin_operation_log` VALUES (1062, 1, 'admin/goods/goods_search', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:19', '2020-04-20 11:11:19');
+INSERT INTO `admin_operation_log` VALUES (1063, 1, 'admin/goods/goods', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:21', '2020-04-20 11:11:21');
+INSERT INTO `admin_operation_log` VALUES (1064, 1, 'admin/goods/goods', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:24', '2020-04-20 11:11:24');
+INSERT INTO `admin_operation_log` VALUES (1065, 1, 'admin/goods/goods_details', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:29', '2020-04-20 11:11:29');
+INSERT INTO `admin_operation_log` VALUES (1066, 1, 'admin/order/order', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:42', '2020-04-20 11:11:42');
+INSERT INTO `admin_operation_log` VALUES (1067, 1, 'admin/order/order_details', 'GET', '172.18.56.145', '[]', '2020-04-20 11:11:44', '2020-04-20 11:11:44');
+INSERT INTO `admin_operation_log` VALUES (1068, 1, 'admin/order/order_record', 'GET', '172.18.56.145', '[]', '2020-04-20 11:12:16', '2020-04-20 11:12:16');
+INSERT INTO `admin_operation_log` VALUES (1069, 1, 'admin/order/order_comment', 'GET', '172.18.56.145', '[]', '2020-04-20 11:12:18', '2020-04-20 11:12:18');
+INSERT INTO `admin_operation_log` VALUES (1070, 1, 'admin', 'GET', '172.17.154.129', '[]', '2020-04-24 02:06:12', '2020-04-24 02:06:12');
+INSERT INTO `admin_operation_log` VALUES (1071, 1, 'admin/dashboard', 'GET', '172.17.154.129', '[]', '2020-04-24 02:06:29', '2020-04-24 02:06:29');
+INSERT INTO `admin_operation_log` VALUES (1072, 1, 'admin/user/user', 'GET', '172.17.154.129', '[]', '2020-04-24 02:06:57', '2020-04-24 02:06:57');
+INSERT INTO `admin_operation_log` VALUES (1073, 1, 'admin/user/wallet', 'GET', '172.17.154.129', '[]', '2020-04-24 02:07:00', '2020-04-24 02:07:00');
+INSERT INTO `admin_operation_log` VALUES (1074, 1, 'admin/user/wallet_record', 'GET', '172.17.154.129', '[]', '2020-04-24 02:07:03', '2020-04-24 02:07:03');
+INSERT INTO `admin_operation_log` VALUES (1075, 1, 'admin/user/withdraw', 'GET', '172.17.154.129', '[]', '2020-04-24 02:07:05', '2020-04-24 02:07:05');
+INSERT INTO `admin_operation_log` VALUES (1076, 1, 'admin/user/address', 'GET', '172.17.154.129', '[]', '2020-04-24 02:07:08', '2020-04-24 02:07:08');
+INSERT INTO `admin_operation_log` VALUES (1077, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:07:13', '2020-04-24 02:07:13');
+INSERT INTO `admin_operation_log` VALUES (1078, 1, 'admin/goods/goods/create', 'GET', '172.17.154.129', '{\"_ifraem_id_\":\"iframe__admin_goods_goods\"}', '2020-04-24 02:07:37', '2020-04-24 02:07:37');
+INSERT INTO `admin_operation_log` VALUES (1079, 1, 'admin/goods/goods_details', 'GET', '172.17.154.129', '[]', '2020-04-24 02:07:54', '2020-04-24 02:07:54');
+INSERT INTO `admin_operation_log` VALUES (1080, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:10:08', '2020-04-24 02:10:08');
+INSERT INTO `admin_operation_log` VALUES (1081, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:10:20', '2020-04-24 02:10:20');
+INSERT INTO `admin_operation_log` VALUES (1082, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:10:49', '2020-04-24 02:10:49');
+INSERT INTO `admin_operation_log` VALUES (1083, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:10:58', '2020-04-24 02:10:58');
+INSERT INTO `admin_operation_log` VALUES (1084, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:11:05', '2020-04-24 02:11:05');
+INSERT INTO `admin_operation_log` VALUES (1085, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:11:17', '2020-04-24 02:11:17');
+INSERT INTO `admin_operation_log` VALUES (1086, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:11:35', '2020-04-24 02:11:35');
+INSERT INTO `admin_operation_log` VALUES (1087, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:12:23', '2020-04-24 02:12:23');
+INSERT INTO `admin_operation_log` VALUES (1088, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:12:34', '2020-04-24 02:12:34');
+INSERT INTO `admin_operation_log` VALUES (1089, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:13:01', '2020-04-24 02:13:01');
+INSERT INTO `admin_operation_log` VALUES (1090, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:13:10', '2020-04-24 02:13:10');
+INSERT INTO `admin_operation_log` VALUES (1091, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:13:40', '2020-04-24 02:13:40');
+INSERT INTO `admin_operation_log` VALUES (1092, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:14:01', '2020-04-24 02:14:01');
+INSERT INTO `admin_operation_log` VALUES (1093, 1, 'admin/auth/menu', 'GET', '172.17.154.129', '[]', '2020-04-24 02:14:07', '2020-04-24 02:14:07');
+INSERT INTO `admin_operation_log` VALUES (1094, 1, 'admin/auth/menu/29', 'DELETE', '172.17.154.129', '{\"_method\":\"delete\",\"_token\":\"Gs8sBR4MSeqc001FqPlC7IedszgXJ2cTAwubPDGc\"}', '2020-04-24 02:14:11', '2020-04-24 02:14:11');
+INSERT INTO `admin_operation_log` VALUES (1095, 1, 'admin/auth/menu', 'GET', '172.17.154.129', '{\"_pjax\":\"#pjax-container\"}', '2020-04-24 02:14:12', '2020-04-24 02:14:12');
+INSERT INTO `admin_operation_log` VALUES (1096, 1, 'admin', 'GET', '172.17.154.129', '[]', '2020-04-24 02:14:46', '2020-04-24 02:14:46');
+INSERT INTO `admin_operation_log` VALUES (1097, 1, 'admin/dashboard', 'GET', '172.17.154.129', '[]', '2020-04-24 02:14:47', '2020-04-24 02:14:47');
+INSERT INTO `admin_operation_log` VALUES (1098, 1, 'admin/order/order', 'GET', '172.17.154.129', '[]', '2020-04-24 02:14:50', '2020-04-24 02:14:50');
+INSERT INTO `admin_operation_log` VALUES (1099, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:14:51', '2020-04-24 02:14:51');
+INSERT INTO `admin_operation_log` VALUES (1100, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:15:30', '2020-04-24 02:15:30');
+INSERT INTO `admin_operation_log` VALUES (1101, 1, 'admin/goods/goods', 'GET', '172.17.154.129', '[]', '2020-04-24 02:15:33', '2020-04-24 02:15:33');
+INSERT INTO `admin_operation_log` VALUES (1102, 1, 'admin/goods/goods/3/edit', 'GET', '172.17.154.129', '{\"_pjax\":\"#pjax-container\"}', '2020-04-24 02:16:05', '2020-04-24 02:16:05');
 
 -- ----------------------------
 -- Table structure for admin_permissions
@@ -1280,7 +1344,7 @@ CREATE TABLE `admin_users`  (
 -- ----------------------------
 -- Records of admin_users
 -- ----------------------------
-INSERT INTO `admin_users` VALUES (1, 'admin', '$2y$10$x3iFyaV6QngZX0kQWnW.z.B5UEiRLATZx0DaY7KlMKToBJDxRDgZy', 'Administrator', NULL, 'ciyq0aEnbyyuKenlXdCHdEGmn3hvEaJeKiocfdj1eDNZ0cU8nXgGMUGMs8nL', '2020-04-09 15:45:15', '2020-04-09 15:45:15');
+INSERT INTO `admin_users` VALUES (1, 'admin', '$2y$10$x3iFyaV6QngZX0kQWnW.z.B5UEiRLATZx0DaY7KlMKToBJDxRDgZy', 'Administrator', NULL, 'A63shGYfkuCG1agaZrT2zD1HJms1EtZjMiKMoolkdaSgQRYDaCMOyPYACwm5', '2020-04-09 15:45:15', '2020-04-09 15:45:15');
 
 -- ----------------------------
 -- Table structure for failed_jobs
@@ -1309,7 +1373,7 @@ CREATE TABLE `goods`  (
   `tags` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL DEFAULT NULL COMMENT '标签',
   `stock` int(11) NOT NULL DEFAULT 0 COMMENT '商品库存',
   `sku` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '商品sku',
-  `details_id` int(11) NOT NULL DEFAULT 0 COMMENT '详情ID',
+  `details` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NULL COMMENT '详情',
   `click_count` int(11) NOT NULL DEFAULT 0 COMMENT '查看次数',
   `buy_count` int(11) NOT NULL DEFAULT 0 COMMENT '购买次数',
   `status` tinyint(4) NOT NULL DEFAULT 0 COMMENT '状态：0：未上架：1：上架中',
@@ -1325,20 +1389,20 @@ CREATE TABLE `goods`  (
 -- ----------------------------
 -- Records of goods
 -- ----------------------------
-INSERT INTO `goods` VALUES (3, '狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 1, 0, 0, 1, NULL, NULL, NULL, 1, '2020-04-12 04:02:19', '2020-04-19 23:51:22');
-INSERT INTO `goods` VALUES (4, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 0, 0, 1, '2020-04-12 12:49:02', '2020-04-13 12:49:05', NULL, 2, '2020-04-12 04:02:19', '2020-04-12 04:18:24');
-INSERT INTO `goods` VALUES (5, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 0, 0, 1, '2020-04-12 12:49:12', '2020-04-13 12:49:15', NULL, 2, '2020-04-12 04:02:19', '2020-04-12 04:19:20');
-INSERT INTO `goods` VALUES (6, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 0, 0, 1, '2020-04-12 12:49:19', '2020-04-14 12:49:25', '2020-04-15 12:49:29', 3, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (7, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 4, 0, 1, '2020-04-12 12:49:34', '2020-04-15 12:49:38', '2020-04-16 12:49:43', 3, '2020-04-12 04:02:19', '2020-04-19 16:18:47');
-INSERT INTO `goods` VALUES (8, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 4, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (9, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 4, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (10, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 5, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (11, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 5, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (12, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 6, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (13, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '升级指定产品A', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 6, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (14, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 2, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (15, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '升级指定产品B', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 6, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
-INSERT INTO `goods` VALUES (16, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, 0, 0, 0, 1, NULL, NULL, NULL, 1, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (3, '狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '1', 5, 0, 1, NULL, NULL, NULL, 1, '2020-04-12 04:02:19', '2020-04-24 02:37:26');
+INSERT INTO `goods` VALUES (4, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 0, 0, 1, '2020-04-12 12:49:02', '2020-04-13 12:49:05', NULL, 2, '2020-04-12 04:02:19', '2020-04-12 04:18:24');
+INSERT INTO `goods` VALUES (5, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 0, 0, 1, '2020-04-12 12:49:12', '2020-04-13 12:49:15', NULL, 2, '2020-04-12 04:02:19', '2020-04-12 04:19:20');
+INSERT INTO `goods` VALUES (6, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 0, 0, 1, '2020-04-12 12:49:19', '2020-04-14 12:49:25', '2020-04-15 12:49:29', 3, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (7, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 5, 0, 1, '2020-04-12 12:49:34', '2020-04-15 12:49:38', '2020-04-16 12:49:43', 3, '2020-04-12 04:02:19', '2020-04-24 02:29:16');
+INSERT INTO `goods` VALUES (8, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 4, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (9, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 4, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (10, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 5, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (11, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '4月专属礼品', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 5, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (12, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 6, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (13, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '升级指定产品A', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 6, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (14, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 2, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (15, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '升级指定产品B', 5, NULL, '0', 0, 0, 1, NULL, NULL, NULL, 6, '2020-04-12 04:02:19', '2020-04-12 04:02:19');
+INSERT INTO `goods` VALUES (16, '狗子狗子狗子狗子', 'images/63942da4135e9c59d07064d4e6d100b2.jpg', '988', 0.90, '热销,新品', 5, NULL, '0', 1, 0, 1, NULL, NULL, NULL, 1, '2020-04-12 04:02:19', '2020-04-24 02:21:47');
 
 -- ----------------------------
 -- Table structure for goods_cart
@@ -1382,25 +1446,6 @@ INSERT INTO `goods_cart` VALUES (24, 1, 6, 1, NULL, '2020-04-16 13:26:28', '2020
 INSERT INTO `goods_cart` VALUES (25, 15, 7, 1, NULL, '2020-04-19 15:12:00', '2020-04-19 15:12:00');
 INSERT INTO `goods_cart` VALUES (26, 15, 7, 1, NULL, '2020-04-19 15:16:21', '2020-04-19 15:16:21');
 INSERT INTO `goods_cart` VALUES (27, 15, 6, 1, NULL, '2020-04-19 15:23:18', '2020-04-19 15:23:18');
-
--- ----------------------------
--- Table structure for goods_details
--- ----------------------------
-DROP TABLE IF EXISTS `goods_details`;
-CREATE TABLE `goods_details`  (
-  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0' COMMENT '标题',
-  `content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '详情',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of goods_details
--- ----------------------------
-INSERT INTO `goods_details` VALUES (1, '地图控件', '<h2 id=\"地图控件\" style=\"box-sizing: border-box; margin-top: 24px; margin-bottom: 16px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; line-height: 1.25; color: rgb(36, 41, 46); padding-bottom: 0.3em; border-bottom: 1px solid rgb(234, 236, 239); white-space: normal; background-color: rgb(255, 255, 255);\">地图控件</h2><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);\">地图组件在v1.7.0版本之后移除，请使用<a href=\"https://github.com/laravel-admin-extensions/latlong\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">经纬度选择器插件</a>代替</p><h2 id=\"滑动选择控件\" style=\"box-sizing: border-box; margin-top: 24px; margin-bottom: 16px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; line-height: 1.25; color: rgb(36, 41, 46); padding-bottom: 0.3em; border-bottom: 1px solid rgb(234, 236, 239); white-space: normal; background-color: rgb(255, 255, 255);\"><a class=\"anchorjs-link \" href=\"https://laravel-admin.org/docs/zh/model-form-fields#%E6%BB%91%E5%8A%A8%E9%80%89%E6%8B%A9%E6%8E%A7%E4%BB%B6\" aria-label=\"Anchor\" data-anchorjs-icon=\"\" style=\"box-sizing: border-box; color: rgb(255, 82, 49); text-decoration-line: none; background-color: transparent; opacity: 0; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: inherit; font-family: anchorjs-icons; position: absolute; margin-left: -1em; padding-right: 0.5em;\"></a>滑动选择控件</h2><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);\">可以用来数字类型字段的选择，比如年龄：</p><pre class=\" language-php\" style=\"box-sizing: border-box; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 13.6px; margin-top: 0px; margin-bottom: 16px; overflow: auto; background-color: rgb(246, 248, 250); text-shadow: rgb(255, 255, 255) 0px 1px; word-break: normal; overflow-wrap: normal; line-height: 1.45; tab-size: 4; hyphens: none; padding: 16px; border-radius: 3px;\">$form-&gt;slider($column[,&nbsp;$label])-&gt;options([&#39;max&#39;&nbsp;=&gt;&nbsp;100,&nbsp;&#39;min&#39;&nbsp;=&gt;&nbsp;1,&nbsp;&#39;step&#39;&nbsp;=&gt;&nbsp;1,&nbsp;&#39;postfix&#39;&nbsp;=&gt;&nbsp;&#39;years&nbsp;old&#39;]);</pre><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);\">更多<code style=\"box-sizing: border-box; font-family: SFMono-Regular, Consolas, &quot;Liberation Mono&quot;, Menlo, Courier, monospace; font-size: 13.6px; color: rgb(246, 109, 155); word-break: break-word; padding: 0.2em 0.4em; margin: 0px; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px;\">options</code>请参考:<a href=\"https://github.com/IonDen/ion.rangeSlider#settings\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/IonDen/ion.rangeSlider#settings</a></p><h2 id=\"富文本编辑框\" style=\"box-sizing: border-box; margin-top: 24px; margin-bottom: 16px; font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; line-height: 1.25; color: rgb(36, 41, 46); padding-bottom: 0.3em; border-bottom: 1px solid rgb(234, 236, 239); white-space: normal; background-color: rgb(255, 255, 255);\"><a class=\"anchorjs-link \" href=\"https://laravel-admin.org/docs/zh/model-form-fields#%E5%AF%8C%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E6%A1%86\" aria-label=\"Anchor\" data-anchorjs-icon=\"\" style=\"box-sizing: border-box; color: rgb(255, 82, 49); text-decoration-line: none; background-color: transparent; opacity: 0; -webkit-font-smoothing: antialiased; font-variant-numeric: normal; font-variant-east-asian: normal; font-weight: normal; font-stretch: normal; font-size: 1em; line-height: inherit; font-family: anchorjs-icons; position: absolute; margin-left: -1em; padding-right: 0.5em;\"></a>富文本编辑框</h2><p style=\"box-sizing: border-box; margin-top: 0px; margin-bottom: 16px; color: rgb(36, 41, 46); font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Helvetica, Arial, sans-serif; white-space: normal; background-color: rgb(255, 255, 255);\">富文本编辑框组件在v1.7.0版本之后移除，请选择使用下面的富文本编辑器扩展：</p><table width=\"869\"><thead style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box; border-top: 1px solid rgb(198, 203, 209);\" class=\"firstRow\"><th style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">扩展</th><th style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">URL</th></tr></thead><tbody style=\"box-sizing: border-box;\"><tr style=\"box-sizing: border-box; border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">wangEditor</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/wangEditor\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/laravel-admin-extensions/wangEditor</a></td></tr><tr style=\"box-sizing: border-box; background-color: rgb(246, 248, 250); border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">wangEditor2</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/wangEditor2\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/laravel-admin-extensions/wangEditor2</a></td></tr><tr style=\"box-sizing: border-box; border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">UEditor</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/UEditor\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/laravel-admin-extensions/UEditor</a></td></tr><tr style=\"box-sizing: border-box; background-color: rgb(246, 248, 250); border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">Summernote</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/summernote\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/laravel-admin-extensions/summernote</a></td></tr><tr style=\"box-sizing: border-box; border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">Quill</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/quill\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); background-color: transparent; outline-width: 0px;\">https://github.com/laravel-admin-extensions/quill</a></td></tr><tr style=\"box-sizing: border-box; background-color: rgb(246, 248, 250); border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">CKEditor</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/ckeditor\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/laravel-admin-extensions/ckeditor</a></td></tr><tr style=\"box-sizing: border-box; border-top: 1px solid rgb(198, 203, 209);\"><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\">Simditor</td><td style=\"box-sizing: border-box; padding: 6px 13px; border-color: rgb(223, 226, 229);\"><a href=\"https://github.com/laravel-admin-extensions/simditor\" style=\"box-sizing: border-box; color: rgb(3, 102, 214); text-decoration-line: none; background-color: transparent;\">https://github.com/laravel-admin-extensions/simditor</a></td></tr></tbody></table><p><br/></p>', '2020-04-19 22:54:54', '2020-04-19 23:34:52');
-INSERT INTO `goods_details` VALUES (2, '测试上传图片', '<p><img src=\"http://www.laravel.local/storage/uploads/image/2020/04/19/moon-4919501_1920.jpg\" title=\"/uploads/image/2020/04/19/moon-4919501_1920.jpg\" alt=\"/uploads/image/2020/04/19/moon-4919501_1920.jpg\" width=\"100%\" height=\"\" border=\"0\" vspace=\"0\"/></p>', '2020-04-19 23:19:21', '2020-04-19 23:39:11');
 
 -- ----------------------------
 -- Table structure for goods_search
@@ -1607,7 +1652,7 @@ INSERT INTO `personal_access_tokens` VALUES (8, 'App\\Models\\User\\User', 10, '
 INSERT INTO `personal_access_tokens` VALUES (9, 'App\\Models\\User\\User', 11, '11', '5ce0c6d51a43e9f3ed08b4544019ecf0a5ca8f26e2c7b6b9f361c06b990db2bc', '[\"*\"]', '2020-04-19 14:43:30', '2020-04-19 14:12:28', '2020-04-19 14:43:30');
 INSERT INTO `personal_access_tokens` VALUES (10, 'App\\Models\\User\\User', 13, '13', 'da87e906f0fce71a8c462fb85e7a89a58dae082752472bd326b9a8a055c5b558', '[\"*\"]', '2020-04-19 14:59:44', '2020-04-19 14:41:51', '2020-04-19 14:59:44');
 INSERT INTO `personal_access_tokens` VALUES (11, 'App\\Models\\User\\User', 14, '14', 'b83309988193a8970ec2a758489e24654c86eea746d933553da4673719c0c4e0', '[\"*\"]', NULL, '2020-04-19 14:58:07', '2020-04-19 14:58:07');
-INSERT INTO `personal_access_tokens` VALUES (12, 'App\\Models\\User\\User', 15, '15', '66f140e740d16fbbbe2d38a06b9ce0df05fe77cc2bd7a0c5d75eb8c9d861fe76', '[\"*\"]', '2020-04-19 16:34:50', '2020-04-19 14:59:51', '2020-04-19 16:34:50');
+INSERT INTO `personal_access_tokens` VALUES (12, 'App\\Models\\User\\User', 15, '15', '66f140e740d16fbbbe2d38a06b9ce0df05fe77cc2bd7a0c5d75eb8c9d861fe76', '[\"*\"]', '2020-04-24 02:37:33', '2020-04-19 14:59:51', '2020-04-24 02:37:33');
 
 -- ----------------------------
 -- Table structure for users
@@ -1649,7 +1694,7 @@ INSERT INTO `users` VALUES (10, NULL, NULL, 0, '悦会员-7188', 'https://img-cd
 INSERT INTO `users` VALUES (11, NULL, NULL, 0, '悦会员-6697', 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/github.svg', '2', NULL, 0, 1, NULL, NULL, '5e9bebcc34a4a', '2020-04-19 14:12:28', '2020-04-19 14:12:28', '2020-04-19 14:12:28');
 INSERT INTO `users` VALUES (13, NULL, NULL, 0, '悦会员-9077', 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/github.svg', '2', NULL, 0, 1, NULL, NULL, '5e9bf2af8a52c', '2020-04-19 14:41:51', '2020-04-19 14:41:51', '2020-04-19 14:41:51');
 INSERT INTO `users` VALUES (14, NULL, NULL, 0, '悦会员-9429', 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/github.svg', '2', NULL, 0, 1, NULL, NULL, '5e9bf67f78443', '2020-04-19 14:58:07', '2020-04-19 14:58:07', '2020-04-19 14:58:07');
-INSERT INTO `users` VALUES (15, NULL, NULL, 0, '悦会员-3148', 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/github.svg', '2', NULL, 0, 1, NULL, NULL, '5e9bf6e7ac62f', '2020-04-19 14:59:51', '2020-04-19 14:59:51', '2020-04-19 14:59:51');
+INSERT INTO `users` VALUES (15, NULL, NULL, 15, '悦会员-3148', 'https://img-cdn-qiniu.dcloud.net.cn/uniapp/doc/github.svg', '2', NULL, 0, 1, NULL, NULL, '5e9bf6e7ac62f', '2020-04-24 02:29:03', '2020-04-19 14:59:51', '2020-04-24 02:29:03');
 
 -- ----------------------------
 -- Table structure for wallet
